@@ -65,10 +65,11 @@ ARCHIDROID_GCC_LDFLAGS := -Wl,--sort-common
 #####################
 
 # Flags passed to all C targets compiled with CLANG
-ARCHIDROID_CLANG_CFLAGS := -O3 -Qunused-arguments -Wno-unknown-warning-option
+ARCHIDROID_CLANG_CFLAGS := -O3 -std=gnu14 -Qunused-arguments -Wno-unknown-warning-option
 
 # Flags passed to CLANG preprocessor for C and C++
 ARCHIDROID_CLANG_CPPFLAGS := $(ARCHIDROID_CLANG_CFLAGS)
+ARCHIDROID_CLANG_CPPFLAGS += -std=gnu++14
 
 # Flags passed to linker (ld) of all C and C++ targets compiled with CLANG
 ARCHIDROID_CLANG_LDFLAGS := -Wl,--sort-common
@@ -83,10 +84,12 @@ ARCHIDROID_CLANG_UNKNOWN_FLAGS := \
   -fgraphite \
   -fgraphite-identity \
   -fipa-pta \
+  -fivopts \
   -floop-block \
   -floop-interchange \
   -floop-nest-optimize \
   -floop-parallelize-all \
+  -ftracer \
   -ftree-parallelize-loops=2 \
   -ftree-parallelize-loops=4 \
   -ftree-parallelize-loops=8 \
