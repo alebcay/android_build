@@ -20,8 +20,8 @@ BLUETOOTH := libbluetooth_jni bluetooth.mapsapi bluetooth.default bluetooth.maps
 #######################
 
 # Disable modules that don't work with DragonTC. Split up by arch.
-DISABLE_DTC_arm := v8_mksnapshot.arm
-DISABLE_DTC_arm64 :=
+DISABLE_DTC_arm := v8_mksnapshot.arm libunwind libunwind_32
+DISABLE_DTC_arm64 := v8_mksnapshot.arm v8_mksnapshot.arm64 libscrypt_static libunwind libunwind_32
 
 # Set DISABLE_DTC based on arch
 DISABLE_DTC := \
@@ -110,7 +110,9 @@ DISABLE_POLLY_arm := \
   libc_freebsd \
   libc_tzcode \
   libv8 \
-  v8_mksnapshot.arm
+  v8_mksnapshot.arm \
+  libunwind_32 \
+  libunwind
 DISABLE_POLLY_arm64 := \
   libpng \
   libfuse \
@@ -127,7 +129,9 @@ DISABLE_POLLY_arm64 := \
   libblas \
   libRS \
   libstagefright_mpeg2ts \
-  bcc_strip_attr
+  bcc_strip_attr \
+  libunwind_32 \
+  libunwind
 
 # Add version specific disables.
 ifeq (1,$(words $(filter 3.8 3.9,$(LLVM_PREBUILTS_VERSION))))

@@ -58,4 +58,11 @@ echo "ro.build.characteristics=$TARGET_AAPT_CHARACTERISTICS"
 
 echo "ro.du.device=$DU_DEVICE"
 
+echo "ro.config.hw_power_saving=true"
+echo "ro.media.enc.hprof.vid.fps=65"
+echo "debug.performance.tuning=1"
+echo "video.accelerate.hw=1"
+echo "ro.ril.enable.amr.wideband=1"
+echo "persist.sys.use_dithering=1"
+
 echo "# end build properties"
